@@ -9,34 +9,35 @@ DEAD = 0
 screen_width = 500
 screen_height = 500
 
-width = 10
-height = 10
+"""
+The given gameboard should be at least 3x3 oe the program will crash
+"""
+
+game_board: List[List[int]] = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                               [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
+                               [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
+                               [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                               [0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+                               [0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+                               [0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+                               [0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+width = len(game_board)
+height = len(game_board[0])
+
+if width < 3 or height < 3:
+    print("Game board should have be at least size of 3 in each dimension.")
+    exit(1)
 
 square_width = screen_width / width
 square_height = screen_height / width
-
-# game_board: List[List[int]] = [[0 if i % 2 == 0 else 1]*width for i in range(height)]
-
-game_board: List[List[int]] = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 round = 0
 
 
 def run():
-    while True:
-        print(game_board)
-
-
-def init_screen():
     global game_board
     global round
 
@@ -130,5 +131,4 @@ def update_board():
 
 
 if __name__ == '__main__':
-    init_screen()
-    # run()
+    run()
