@@ -26,6 +26,12 @@ All the next commands imply that you are inside the virtual environment.
 You can see this, because in your command line there will be written `(venv)` 
 at the left of command.
 
+## Install all dependencies
+
+```shell
+python3 -m pip install -r requirements.txt
+```
+
 ## Run
 
 ```sh
